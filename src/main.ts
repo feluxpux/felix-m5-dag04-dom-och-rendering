@@ -31,8 +31,10 @@ hero?.classList.add('dagens')
 hero?.classList.remove('dagens')
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
+//Extern text kan innehålla skadlig kod som webbläsaren då kör
+const farligRawr = '<img src="x" onerror="console.log(\'Attack!\')">'
 // TODO
-
+tips.textContent = farligRawr
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
