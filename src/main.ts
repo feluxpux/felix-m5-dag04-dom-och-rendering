@@ -15,13 +15,17 @@ if (heroRubrik) {
     heroRubrik.textContent = 'Välkommen in!'
 }
 // 3. Hämta alla länkar i menyn med document.querySelectorAll("nav a").
+//    Loopa med for...of och skriv ut varje länks href och text.
 const lankar = document.querySelectorAll<HTMLAnchorElement>('nav a')
 for (const lank of lankar) {
     console.log(lank.href, lank.textContent)
 }
-//    Loopa med for...of och skriv ut varje länks href och text.
 // 4. Skapa ett nytt p-element (document.createElement), ge det texten
 //    "Dagens tips: prova en kardemummabulle." och lägg det sist i #hero med append.
+const hero = document.querySelector<HTMLElement>('#hero')
+const tips = document.createElement('p')
+tips.textContent = 'Dagens tips: prova en kardemummabulle.'
+hero?.append(tips)
 // 5. Lägg klassen "dagens" på #hero med classList.add. Ta bort den med classList.remove.
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
