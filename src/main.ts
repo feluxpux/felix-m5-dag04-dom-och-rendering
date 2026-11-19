@@ -37,7 +37,19 @@ const farligRawr = '<img src="x" onerror="console.log(\'Attack!\')">'
 tips.textContent = farligRawr
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
+const lista = document.querySelector<HTMLElement>('#meny-lista')
+const menyRubrik = document.querySelector<HTMLElement>('#meny-rubrik')
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
-// 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
-//    och markeraDagensRatt.
+if (lista && menyRubrik) {
+    visaMeny(lista, meny)
+    uppdateraRubrik(menyRubrik, meny.length)
+    // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
+    //    och markeraDagensRatt.
+    const lunch = meny.filter((ratt) => ratt.kategori === 'lunch')
+    const dagens = billigast(lunch)
+    if (dagens) {
+        markeraDagensRatt(lista, dagens.id)
+    }
+}
+
 // TODO
