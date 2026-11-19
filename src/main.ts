@@ -27,6 +27,8 @@ const tips = document.createElement('p')
 tips.textContent = 'Dagens tips: prova en kardemummabulle.'
 hero?.append(tips)
 // 5. Lägg klassen "dagens" på #hero med classList.add. Ta bort den med classList.remove.
+hero?.classList.add('dagens')
+hero?.classList.remove('dagens')
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
 // TODO
