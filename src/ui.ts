@@ -13,6 +13,25 @@ import type { Ratt } from './typer'
 //    </article>
 export function skapaRattKort(ratt: Ratt): HTMLElement {
     // TODO
+    const kort = document.createElement('article')
+    kort.dataset.id = String(ratt.id)
+
+    const bild = document.createElement('img')
+    bild.src = ratt.bild ?? ''
+    bild.alt = `Illustration av ${ratt.namn.toLocaleLowerCase()}`
+
+    const rubrik = document.createElement('h3')
+    rubrik.textContent = ratt.namn
+
+    const beskrivning = document.createElement('p')
+    beskrivning.textContent = ratt.beskrivning ?? ''
+
+    const pris = document.createElement('p')
+    pris.className = 'pris'
+    pris.textContent = formateraPris(ratt.pris)
+
+    kort.append(bild, rubrik, beskrivning, pris)
+    return kort
 }
 
 // 2. Töm containern och lägg in ett kort per rätt.
